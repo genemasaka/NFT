@@ -1,7 +1,7 @@
-const { ethers } = require("hardhat");
+require("@nomiclabs/hardhat-ethers");
 
 async function main() {
-    const NFTContract = await ethers.getContractFcatory("SquidNFT");
+    const NFTContract = await ethers.getContractFactory("SquidNFT");
     const deployedNFTContract = await NFTContract.deploy();
     await deployedNFTContract.deployed();
     console.log("NFT Contract Address:", deployedNFTContract.address);

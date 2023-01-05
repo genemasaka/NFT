@@ -1,3 +1,4 @@
+import('hardhat/config.js').HardhatUserConfig;
 require("@nomiclabs/hardhat-waffle");
 require("@nomiclabs/hardhat-ethers");
 require("dotenv").config({ path: ".env"});
@@ -8,10 +9,7 @@ const PRIVATE_KEY = process.env.PRIVATE_KEY;
 module.exports = {
     solidity: "0.8.9",
     networks: {
-        goerli: {
-            url: INFURA_HTTP_URL,
-            accounts: [PRIVATE_KEY],
-        },
+        hardhat: {},
     },
 };
 // This is a sample Hardhat task. To learn how to create your own go to
@@ -33,9 +31,7 @@ task("balances", "Prints the list of AVAX account balances", async () => {
   }
 });
 
-/**
- * @type import('hardhat/config').HardhatUserConfig
- */
+
 module.exports = {
   solidity: {
     compilers: [
@@ -61,6 +57,7 @@ module.exports = {
       gasPrice: 470000000000,
       chainId: 43112,
     },
+     
     avash: {
       url: 'http://localhost:9650/ext/bc/C/rpc',
       gasPrice: 470000000000,
